@@ -1,0 +1,28 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    name: Test
+
+    strategy:
+      matrix:
+        node: [10, 12, 14, 15]
+
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: npm install
+        run: npm ci
+
+      - name: npm test
+        run: npm test
