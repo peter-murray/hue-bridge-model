@@ -54,15 +54,26 @@ import Scene from './scenes/Scene';
 import BridgeConfiguration from './BridgeConfiguration';
 import Capabilities from './Capabilities';
 
+import TypesToModel from './mapTypesToModel'
+import { getOperator } from './rules/conditions/operators/index';
 
 const lightStates = {
   LightState: LightState,
   GroupLightState: GroupState,
+  SceneLightState: SceneLightState,
 }
 
 const ruleConditionOperators = {
   equals: ConditionOperators.Equals,
-  //TODO?
+  changed: ConditionOperators.Dx,
+  changedDelayed: ConditionOperators.Ddx,
+  greaterThan: ConditionOperators.GreaterThan,
+  lessThan: ConditionOperators.LessThan,
+  stable: ConditionOperators.Stable,
+  notStable: ConditionOperators.NotStable,
+  in: ConditionOperators.In,
+  notIn: ConditionOperators.NotIn,
+  getOperator,
 }
 
 const actions = {
@@ -93,72 +104,71 @@ const ruleConditions = {
   },
 }
 
-const builder = {
-  
-  createEntertainment: function () {
-    return new Entertainment();
-  },
-  createLightGroup: function () {
-    return new LightGroup();
-  },
-  createRoom: function () {
-    return new Room();
-  },
-  createZone: function () {
-    return new Zone();
-  },
-  
-  createRule: function() {
-    return new Rule();
-  },
-  
-  createSchedule: function() {
-    return new Schedule();
-  },
-  
-  createLightScene: function() {
-    return new LightScene();
-  },
-  createGroupScene: function() {
-    return new GroupScene();
-  },
+// const builder = {
+//
+//   createEntertainment: function () {
+//     return new Entertainment();
+//   },
+//   createLightGroup: function () {
+//     return new LightGroup();
+//   },
+//   createRoom: function () {
+//     return new Room();
+//   },
+//   createZone: function () {
+//     return new Zone();
+//   },
+//
+//   createRule: function() {
+//     return new Rule();
+//   },
+//
+//   createSchedule: function() {
+//     return new Schedule();
+//   },
+//
+//   createLightScene: function() {
+//     return new LightScene();
+//   },
+//   createGroupScene: function() {
+//     return new GroupScene();
+//   },
+//
+//   createCLIPGenericFlagSensor: function () {
+//     return new CLIPGenericFlag();
+//   },
+//   createCLIPGenericStatusSensor: function () {
+//     return new CLIPGenericStatus();
+//   },
+//   createCLIPHumiditySensor: function () {
+//     return new CLIPHumidity();
+//   },
+//   createCLIPLightlevelSensor: function () {
+//     return new CLIPLightlevel();
+//   },
+//   createCLIPOpenCloseSensor: function () {
+//     return new CLIPOpenClose();
+//   },
+//   createCLIPPresenceSensor: function () {
+//     return new CLIPPresence();
+//   },
+//   createCLIPTemperatureSensor: function () {
+//     return new CLIPTemperature();
+//   },
+//   createCLIPSwitchSensor: function () {
+//     return new CLIPSwitch();
+//   },
+//
+//   createResourceLink: function() {
+//     return new ResourceLink();
+//   }
+// }
 
-  createCLIPGenericFlagSensor: function () {
-    return new CLIPGenericFlag();
-  },
-  createCLIPGenericStatusSensor: function () {
-    return new CLIPGenericStatus();
-  },
-  createCLIPHumiditySensor: function () {
-    return new CLIPHumidity();
-  },
-  createCLIPLightlevelSensor: function () {
-    return new CLIPLightlevel();
-  },
-  createCLIPOpenCloseSensor: function () {
-    return new CLIPOpenClose();
-  },
-  createCLIPPresenceSensor: function () {
-    return new CLIPPresence();
-  },
-  createCLIPTemperatureSensor: function () {
-    return new CLIPTemperature();
-  },
-  createCLIPSwitchSensor: function () {
-    return new CLIPSwitch();
-  },
-
-  createResourceLink: function() {
-    return new ResourceLink();
-  }
-}
-
-const checks = {
+const instanceChecks = {
   isLightInstance : function (obj: any) {
     return obj instanceof Light;
   },
 
-  //TODO possibly remove this
   isSceneInstance : function (obj: any) {
     return obj instanceof Scene;
   },
@@ -193,10 +203,6 @@ const checks = {
 
   isBridgeConfigurationInstance : function (obj: any) {
     return obj instanceof BridgeConfiguration;
-  },
-
-  createBridgeConfiguration : function () {
-    return new BridgeConfiguration();
   },
 }
 
@@ -260,57 +266,13 @@ export {
 
   createFromBridge,
   createFromJson,
-
-  builder,
-  checks,
+  instanceChecks,
 };
 
-type NameToModelMap<T> = {
-  [name: string]: T
-}
 
-const TYPES_TO_MODEL: NameToModelMap<any> = {
-  light: Light,
-
-  capabilities: Capabilities,
-
-  configuration: BridgeConfiguration,
-
-  entertainment: Entertainment,
-  lightgroup: LightGroup,
-  lightsource: Lightsource,
-  luminaire: Luminaire,
-  room: Room,
-  zone: Zone,
-
-  resourcelink: ResourceLink,
-
-  lightscene: LightScene,
-  groupscene: GroupScene,
-
-  schedule: Schedule,
-
-  rule: Rule,
-
-  clipgenericflag: CLIPGenericFlag,
-  clipgenericstatus: CLIPGenericStatus,
-  cliphumidity: CLIPHumidity,
-  cliplightlevel: CLIPLightlevel,
-  clipopenclose: CLIPOpenClose,
-  clippresence: CLIPPresence,
-  clipswitch: CLIPSwitch,
-  cliptemperature: CLIPTemperature,
-  daylight: Daylight,
-  zgpswitch: ZGPSwitch,
-  zlllightlevel: ZLLLightlevel,
-  zllpresence: ZLLPresence,
-  zllswitch: ZLLSwitch,
-  zlltemperature: ZLLTemperature,
-  geofence: GeoFence,
-};
 
 function createFromBridge (type: string, id: string | number, payload: object) {
-  const ModelObject: BridgeObject = TYPES_TO_MODEL[type];
+  const ModelObject: BridgeObject = TypesToModel[type];
 
   if (!ModelObject) {
     throw new HueBridgeModelError(`Unknown type '${type}' to create Bridge Model Object from.`);

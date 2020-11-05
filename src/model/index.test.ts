@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import { expect } from 'chai';
-import { checks, createFromBridge, createFromJson } from './index';
+import { instanceChecks, createFromBridge, createFromJson } from './index';
 
 
 
@@ -19,7 +19,7 @@ describe('Serialization Tests', () => {
       bridgeSerializationTest({
         parentDirectory: HUE_DATA_PATH,
         directoryName: 'groups',
-        instanceCheckFn: checks.isGroupInstance,
+        instanceCheckFn: instanceChecks.isGroupInstance,
         typeFn: (payload: any) => {
           return payload.type.toLowerCase()
         }
@@ -31,7 +31,7 @@ describe('Serialization Tests', () => {
       modelSerializationTest({
         parentDirectory: MODEL_DATA_PATH,
         directoryName: 'groups',
-        instanceCheckFn: checks.isGroupInstance,
+        instanceCheckFn: instanceChecks.isGroupInstance,
       });
     });
   });
@@ -43,7 +43,7 @@ describe('Serialization Tests', () => {
       bridgeSerializationTest({
         parentDirectory: HUE_DATA_PATH,
         directoryName: 'lights',
-        instanceCheckFn: checks.isLightInstance,
+        instanceCheckFn: instanceChecks.isLightInstance,
         typeFn: () => 'light'
       });
     });
@@ -53,7 +53,7 @@ describe('Serialization Tests', () => {
       modelSerializationTest({
         parentDirectory: MODEL_DATA_PATH,
         directoryName: 'lights',
-        instanceCheckFn: checks.isLightInstance,
+        instanceCheckFn: instanceChecks.isLightInstance,
       });
     });
   });
@@ -65,7 +65,7 @@ describe('Serialization Tests', () => {
       bridgeSerializationTest({
         parentDirectory: HUE_DATA_PATH,
         directoryName: 'sensors',
-        instanceCheckFn: checks.isSensorInstance,
+        instanceCheckFn: instanceChecks.isSensorInstance,
         typeFn: (payload: any) => {
           return payload.type.toLowerCase()
         }
@@ -77,7 +77,7 @@ describe('Serialization Tests', () => {
       modelSerializationTest({
         parentDirectory: MODEL_DATA_PATH,
         directoryName: 'sensors',
-        instanceCheckFn: checks.isSensorInstance,
+        instanceCheckFn: instanceChecks.isSensorInstance,
       });
     });
   });
@@ -89,7 +89,7 @@ describe('Serialization Tests', () => {
       bridgeSerializationTest({
         parentDirectory: HUE_DATA_PATH,
         directoryName: 'schedules',
-        instanceCheckFn: checks.isScheduleInstance,
+        instanceCheckFn: instanceChecks.isScheduleInstance,
         typeFn: () => 'schedule'
       });
     });
@@ -99,7 +99,7 @@ describe('Serialization Tests', () => {
       modelSerializationTest({
         parentDirectory: MODEL_DATA_PATH,
         directoryName: 'schedules',
-        instanceCheckFn: checks.isScheduleInstance,
+        instanceCheckFn: instanceChecks.isScheduleInstance,
       });
     });
   });
@@ -111,7 +111,7 @@ describe('Serialization Tests', () => {
       bridgeSerializationTest({
         parentDirectory: HUE_DATA_PATH,
         directoryName: 'resourcelinks',
-        instanceCheckFn: checks.isResourceLinkInstance,
+        instanceCheckFn: instanceChecks.isResourceLinkInstance,
         typeFn: () => 'resourcelink'
       });
     });
@@ -121,7 +121,7 @@ describe('Serialization Tests', () => {
       modelSerializationTest({
         parentDirectory: MODEL_DATA_PATH,
         directoryName: 'resourcelinks',
-        instanceCheckFn: checks.isResourceLinkInstance,
+        instanceCheckFn: instanceChecks.isResourceLinkInstance,
       });
     });
   });
@@ -133,7 +133,7 @@ describe('Serialization Tests', () => {
       bridgeSerializationTest({
         parentDirectory: HUE_DATA_PATH,
         directoryName: 'scenes',
-        instanceCheckFn: checks.isSceneInstance,
+        instanceCheckFn: instanceChecks.isSceneInstance,
         typeFn: (payload: any) => {
           return payload.type.toLowerCase();
         },
@@ -148,7 +148,7 @@ describe('Serialization Tests', () => {
       modelSerializationTest({
         parentDirectory: MODEL_DATA_PATH,
         directoryName: 'scenes',
-        instanceCheckFn: checks.isSceneInstance,
+        instanceCheckFn: instanceChecks.isSceneInstance,
       });
     });
   });
