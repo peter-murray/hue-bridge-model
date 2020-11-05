@@ -1,7 +1,7 @@
 {
   "name": "@peter-murray/hue-bridge-model",
   "description": "Philips Hue Bridge Model",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Peter Murray <681306+peter-murray@users.noreply.github.com>",
   "contributors": [
     {
