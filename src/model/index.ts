@@ -52,6 +52,7 @@ import * as ConditionOperators from './rules/conditions/operators/index'
 import Scene from './scenes/Scene';
 
 import BridgeConfiguration from './BridgeConfiguration';
+import Capabilities from './Capabilities';
 
 
 const lightStates = {
@@ -255,6 +256,8 @@ export {
 
   BridgeConfiguration,
 
+  Capabilities,
+
   createFromBridge,
   createFromJson,
 
@@ -268,10 +271,10 @@ type NameToModelMap<T> = {
 
 const TYPES_TO_MODEL: NameToModelMap<any> = {
   light: Light,
-//TODO
-  // capabilities: Capabilities,
-//TODO
-  // configuration: BridgeConfiguration,
+
+  capabilities: Capabilities,
+
+  configuration: BridgeConfiguration,
 
   entertainment: Entertainment,
   lightgroup: LightGroup,
