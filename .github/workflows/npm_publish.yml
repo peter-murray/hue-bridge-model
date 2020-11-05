@@ -1,11 +1,9 @@
 name: Node.js Publish
 
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: Version
-        required: true
+  create:
+    tags:
+      - v*
     
 env:
   node_version: 12
@@ -24,7 +22,6 @@ jobs:
           node-version: ${{ env.node_version }}
         
       - run: npm ci
-      - run: npm version ${{ github.event.inputs.version }}
       - run: npm test
 
 
@@ -44,7 +41,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
           
       - run: npm ci
-      - run: npm version ${{ github.event.inputs.version }}
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
@@ -67,7 +63,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/peter-murray
           
       - run: npm ci
-      - run: npm version ${{ github.event.inputs.version }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
