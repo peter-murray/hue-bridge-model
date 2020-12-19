@@ -26,12 +26,6 @@ const COLOR_GAMUTS: {[key: string]: ColorGamut} = {
 
 export default COLOR_GAMUTS
 
-export interface ColorGamut {
-  red: {x: number, y: number}
-  green: {x: number, y: number}
-  blue: {x: number, y: number}
-}
-
 export function getColorGamut(value: string): ColorGamut {
   return COLOR_GAMUTS[value];
 }
