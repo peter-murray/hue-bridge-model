@@ -1,4 +1,3 @@
-
 import Group from './Group';
 import StringType from '../../types/StringType';
 import ObjectType from '../../types/ObjectType';
@@ -23,13 +22,18 @@ const ATTRIBUTES = [
   new ListType({name: 'lights', minEntries: 0, entryType: new StringType({name: 'lightId'})}),
 ];
 
+export type Stream = {
+  proxymode: string,
+  proxynode: string,
+  active: boolean,
+  owner?: string
+}
+
 /**
  * A Group of lights that can be utilized in an Entertainment situation for streaming.
  *
  * There are limitations on which lights can be added to an Entertainment Group, as they need to support the ability
  * to stream, which requires newer lights in the hue ecosystem.
- *
- * @type {Entertainment}
  */
 export default class Entertainment extends Group {
 
@@ -53,19 +57,7 @@ export default class Entertainment extends Group {
     return this.getAttributeValue('class');
   }
 
-  /**
-   * Obtains details of the stream on the Entertainment Group.
-   *
-   * @typedef Stream
-   * @type {object}
-   * @property proxymode {string}
-   * @property proxynode {string}
-   * @property active {boolean} The status of whether or not the stream is active
-   * @property owner {string} The owner (user id) of the stream if it is active
-   *
-   * @returns @type {Stream}
-   */
-  get stream() {
+  get stream(): Stream  {
     return this.getAttributeValue('stream');
   }
 

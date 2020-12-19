@@ -1,10 +1,8 @@
 import States from './States';
 
-export default class BaseStates extends States {
+export default abstract class BaseStates<T> extends States<T> {
 
   constructor(attributes?: string[]) {
-
-
     super([
         ...[
           'on',

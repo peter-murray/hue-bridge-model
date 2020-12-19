@@ -1,6 +1,6 @@
 import CommonStates from './CommonStates';
 
-export default class LightState extends CommonStates {
+export default class LightState extends CommonStates<LightState> {
 
   constructor() {
     super(['rgb']);

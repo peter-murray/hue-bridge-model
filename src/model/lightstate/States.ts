@@ -10,11 +10,13 @@ const PERCENTAGE = new UInt8Type({name: 'percentage', min: 0, max: 100})
 
 type NameToType = { [key: string]: Type<any> }
 
-export default class States {
+export default abstract class States<T> {
 
   private _state: object;
 
-  private _allowedStates: NameToType;
+  private readonly _allowedStates: NameToType;
+
+  protected me: T;
 
   constructor(attributes: string[]) {
     const states: { [key: string]: Type<any> } = {};
@@ -30,11 +32,14 @@ export default class States {
 
     this._allowedStates = states;
     this._state = {};
+
+    // @ts-ignore
+    this.me = this;
   }
 
-  reset(): States {
+  reset(): T {
     this._state = {};
-    return this;
+    return this.me;
   }
 
   //TODO need to define this data as a type
@@ -69,7 +74,7 @@ export default class States {
     return self;
   }
 
-  protected _setStateValue(definitionName: string, value: any): States {
+  protected _setStateValue(definitionName: string, value: any): T {
     const self = this
       , stateDefinition = self._allowedStates[definitionName]
     ;
@@ -81,7 +86,7 @@ export default class States {
       throw new HueBridgeModelError(`Attempted to set a state '${definitionName}' that is not one of the allowed states`);
     }
 
-    return self;
+    return this.me;
   }
 
   protected _convertPercentageToStateValue(value: number | string, stateName: string, isFloat?: boolean) {

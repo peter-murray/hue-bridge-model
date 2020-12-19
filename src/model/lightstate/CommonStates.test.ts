@@ -22,10 +22,10 @@ describe('Hue API #lightState', () => {
 
   describe('single states', () => {
 
-    let state: CommonStates;
+    let state: CommonStates<CommonStates<any>>;
 
     beforeEach(() => {
-      state = new CommonStates();
+      state = new CommonStates<CommonStates<any>>();
     });
 
     describe('state: on', () => {
