@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import StringType from './StringType';
-import ListType from './ListType';
-import FloatType from './FloatType';
+import { StringType } from './StringType';
+import { ListType } from './ListType';
+import { FloatType } from './FloatType';
 
 //TODO increase coverage of permutations of min/max/required
 

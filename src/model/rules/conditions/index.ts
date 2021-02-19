@@ -1,8 +1,8 @@
 //TODO verify we have all conditions covered
-import RuleCondition, { RuleConditionData } from './RuleCondition';
-import GroupCondition from './GroupCondition';
-import HueBridgeModelError from '../../../HueBridgeModelError';
-import SensorCondition from './SensorCondition';
+import { RuleCondition, RuleConditionData } from './RuleCondition';
+import { GroupCondition } from './GroupCondition';
+import { HueBridgeModelError } from '../../../HueBridgeModelError';
+import { SensorCondition } from './SensorCondition';
 
 type RuleConditionPayload = RuleCondition | SensorCondition | GroupCondition | RuleConditionData;
 

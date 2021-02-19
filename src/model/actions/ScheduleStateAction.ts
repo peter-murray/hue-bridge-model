@@ -1,7 +1,7 @@
-import BridgeAction from './BridgeAction';
-import HueBridgeModelError from '../../HueBridgeModelError';
+import { BridgeAction } from './BridgeAction';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 
-export default class ScheduleStateAction extends BridgeAction {
+export class ScheduleStateAction extends BridgeAction {
 
   private id?: string | number;
 

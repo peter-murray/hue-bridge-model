@@ -1,10 +1,5 @@
-import ChoiceType from '../../types/ChoiceType';
-import StringType from '../../types/StringType';
-import BooleanType from '../../types/BooleanType';
-import ObjectType from '../../types/ObjectType';
-import Int8Type from '../../types/Int8Type';
-import BridgeObjectWithId from '../BridgeObjectWithId';
-import Type from '../../types/Type';
+import { BooleanType, ChoiceType, Int8Type, ObjectType, StringType, BaseType } from '../../types';
+import { BridgeObjectWithId } from '../BridgeObjectWithId';
 
 const ATTRIBUTES = [
   new StringType({name: 'id', minLength: 1, maxLength: 16}),
@@ -24,9 +19,9 @@ type AppData = {
   data: string
 }
 
-export default class Scene extends BridgeObjectWithId {
+export class Scene extends BridgeObjectWithId {
 
-  constructor(attributes: Type<any>[], type: string, id?: number | string) {
+  constructor(attributes: BaseType<any>[], type: string, id?: number | string) {
     super([...ATTRIBUTES, ...attributes], id);
 
     this.setAttributeValue('type', type);
@@ -83,4 +78,4 @@ export default class Scene extends BridgeObjectWithId {
   get version(): number {
     return this.getAttributeValue('version');
   }
-};
+}

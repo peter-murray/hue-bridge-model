@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import ObjectType from './ObjectType';
-import Int8Type from './Int8Type';
-import StringType from './StringType';
+import { ObjectType } from './ObjectType';
+import { Int8Type } from './Int8Type';
+import { StringType } from './StringType';
 
 
 describe('ObjectType', () => {

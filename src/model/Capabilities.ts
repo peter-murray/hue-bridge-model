@@ -1,8 +1,5 @@
-import ObjectType from '../types/ObjectType';
-import UInt16Type from '../types/UInt16Type';
-import ListType from '../types/ListType';
-import StringType from '../types/StringType';
-import BridgeObject from './BridgeObject';
+import { ObjectType, UInt16Type, ListType, StringType } from '../types';
+import { BridgeObject } from './BridgeObject';
 
 const ATTRIBUTES = [
   new ObjectType({
@@ -136,7 +133,7 @@ type Streaming = {
   channels: number
 } & AvailableTotalSummary
 
-export default class Capabilities extends BridgeObject {
+export class Capabilities extends BridgeObject {
 
   constructor() {
     super(ATTRIBUTES);

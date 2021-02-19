@@ -1,7 +1,5 @@
-import Group from './Group';
-import StringType from '../../types/StringType';
-import ListType from '../../types/ListType';
-import ChoiceType from '../../types/ChoiceType';
+import { Group } from './Group';
+import { ChoiceType, ListType, StringType } from '../../types';
 
 const ATTRIBUTES = [
   new StringType({name: 'type', defaultValue: 'Zone'}),
@@ -9,8 +7,7 @@ const ATTRIBUTES = [
   new ListType({name: 'lights', minEntries: 0, entryType: new StringType({name: 'lightId'})}),
 ];
 
-
-export default class Zone extends Group {
+export class Zone extends Group {
 
   constructor(id?: string | number) {
     super(ATTRIBUTES, id);
@@ -31,4 +28,4 @@ export default class Zone extends Group {
   get class(): string {
     return this.getAttributeValue('class');
   }
-};
+}

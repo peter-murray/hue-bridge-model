@@ -1,6 +1,6 @@
-import RuleConditionOperator from './operators/RuleConditionOperator';
-import { getOperator } from './operators/index';
-import HueBridgeModelError from '../../../HueBridgeModelError';
+import { RuleConditionOperator } from './RuleConditionOperator';
+import { getOperator } from './operators';
+import { HueBridgeModelError } from '../../../HueBridgeModelError';
 
 export type RuleConditionData = {
   address: string,
@@ -8,7 +8,7 @@ export type RuleConditionData = {
   value?: string | number | boolean,
 }
 
-export default class RuleCondition {
+export class RuleCondition {
 
   private readonly address: string;
 

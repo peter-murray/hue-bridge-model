@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import BooleanType from './BooleanType';
+import {BooleanType} from './BooleanType';
 
 describe('BooleanType', () => {
 

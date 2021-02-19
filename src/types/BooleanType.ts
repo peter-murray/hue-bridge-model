@@ -1,8 +1,6 @@
-import Type from './Type';
-import { isValueDefined } from './Type';
-import { BooleanTypeConfig } from './TypeConfig';
+import { BaseType, BooleanTypeConfig, isValueDefined } from './BaseType';
 
-export default class BooleanType extends Type<boolean> {
+export class BooleanType extends BaseType<boolean> {
 
   constructor(config: BooleanTypeConfig) {
     super({...{type: 'boolean'}, ...config});

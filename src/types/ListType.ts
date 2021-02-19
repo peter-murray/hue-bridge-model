@@ -1,15 +1,13 @@
-import Type, { NullableTypeValue } from './Type';
-import { isValueDefined } from './Type';
-import { ListTypeConfig } from './TypeConfig';
+import { BaseType, NullableTypeValue } from './BaseType';
+import { isValueDefined, ListTypeConfig } from './BaseType';
 
-
-export default class ListType<T> extends Type<T[]> {
+export class ListType<T> extends BaseType<T[]> {
 
   readonly minEntries: number
 
   readonly maxEntries?: number
 
-  readonly entryType: Type<T>
+  readonly entryType: BaseType<T>
 
   constructor(config: ListTypeConfig<T>) {
     // @ts-ignore
@@ -29,7 +27,7 @@ export default class ListType<T> extends Type<T[]> {
       if (this.minEntries === 0) {
         return listValues;
       } else {
-        throw new TypeError(`Type ${this.name}, minEntries requirement not satisfied, required ${this.minEntries}, but have null object`);
+        throw new TypeError(`BaseType ${this.name}, minEntries requirement not satisfied, required ${this.minEntries}, but have null object`);
       }
     }
 
@@ -53,7 +51,7 @@ export default class ListType<T> extends Type<T[]> {
     }
 
     const result: NullableTypeValue<T>[] = []
-      , type: Type<T> = this.entryType
+      , type: BaseType<T> = this.entryType
     ;
 
     if (Array.isArray(val)) {

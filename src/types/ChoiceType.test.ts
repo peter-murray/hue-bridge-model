@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import ChoiceType from './ChoiceType'
+import { ChoiceType } from './ChoiceType';
 
 describe('ChoiceType', () => {
 

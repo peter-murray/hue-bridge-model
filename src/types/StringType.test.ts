@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import StringType from './StringType';
+import { StringType } from './StringType';
 
 describe('StringType', () => {
 

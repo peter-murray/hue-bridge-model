@@ -1,14 +1,13 @@
-import Type from './Type';
-import { isValueDefined } from './Type';
-import { ObjectTypeConfig } from './TypeConfig';
+import { BaseType } from './BaseType';
+import { isValueDefined, ObjectTypeConfig } from './BaseType';
 
 interface LooseObject {
   [key: string]: any
 }
 
-export default class ObjectType extends Type<LooseObject> {
+export class ObjectType extends BaseType<LooseObject> {
 
-  public types?: Type<any>[]
+  public types?: BaseType<any>[]
 
   public childRequiredKeys: string[]
 
@@ -81,6 +80,6 @@ export default class ObjectType extends Type<LooseObject> {
       });
     }
   }
-};
+}
 
 

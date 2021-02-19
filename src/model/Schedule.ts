@@ -1,31 +1,30 @@
-import BridgeObjectWithId, { BridgeObjectId } from './BridgeObjectWithId';
-import { types } from '../index';
-import StringType from '../types/StringType';
+import { BridgeObjectId, BridgeObjectWithId } from './BridgeObjectWithId';
+import {StringType, UInt8Type, ObjectType, BooleanType, ChoiceType, TimePatternType} from '../types';
 
 const ATTRIBUTES = [
-  new types.UInt8Type({name: 'id'}),
+  new UInt8Type({name: 'id'}),
   new StringType({name: 'name', minLength: 0, maxLength: 32, optional: true}),
   new StringType({name: 'description', minLength: 0, maxLength: 64, optional: true}),
-  new types.ObjectType({
+  new ObjectType({
     name: 'command',
     optional: false,
     types: [
       new StringType({name: 'address', optional: false}),
-      new types.ChoiceType({name: 'method', optional: false, validValues: ['POST', 'PUT', 'DELETE']}),
-      new types.ObjectType({name: 'body', optional: false}),
+      new ChoiceType({name: 'method', optional: false, validValues: ['POST', 'PUT', 'DELETE']}),
+      new ObjectType({name: 'body', optional: false}),
     ],
   }),
   new StringType({name: 'time'}),
-  new types.TimePatternType({name: 'localtime'}),
+  new TimePatternType({name: 'localtime'}),
   new StringType({name: 'created'}),
-  new types.ChoiceType({name: 'status', validValues: ['enabled', 'disabled'], defaultValue: 'enabled'}),
-  new types.BooleanType({name: 'autodelete'}),
-  new types.BooleanType({name: 'recycle', defaultValue: false}),
+  new ChoiceType({name: 'status', validValues: ['enabled', 'disabled'], defaultValue: 'enabled'}),
+  new BooleanType({name: 'autodelete'}),
+  new BooleanType({name: 'recycle', defaultValue: false}),
   new StringType({name: 'starttime'}),
 ];
 
 
-export default class Schedule extends BridgeObjectWithId {
+export class Schedule extends BridgeObjectWithId {
 
   constructor(id?: BridgeObjectId) {
     super(ATTRIBUTES, id);
@@ -94,4 +93,4 @@ export default class Schedule extends BridgeObjectWithId {
   get created(): string {
     return this.getAttributeValue('created');
   }
-};
+}

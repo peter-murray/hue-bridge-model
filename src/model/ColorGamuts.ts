@@ -4,7 +4,7 @@ export interface ColorGamut {
   blue: {x: number, y: number}
 }
 
-const COLOR_GAMUTS: {[key: string]: ColorGamut} = {
+export const COLOR_GAMUTS: {[key: string]: ColorGamut} = {
   'A': {
     red: {x: 0.704, y: 0.296},
     green: {x: 0.2151, y: 0.7106},
@@ -23,8 +23,6 @@ const COLOR_GAMUTS: {[key: string]: ColorGamut} = {
     blue: {x: 0.1532, y: 0.0475},
   },
 };
-
-export default COLOR_GAMUTS
 
 export function getColorGamut(value: string): ColorGamut {
   return COLOR_GAMUTS[value];

@@ -1,9 +1,5 @@
-import Group from './Group';
-import StringType from '../../types/StringType';
-import ObjectType from '../../types/ObjectType';
-import ChoiceType from '../../types/ChoiceType';
-import BooleanType from '../../types/BooleanType';
-import ListType from '../../types/ListType';
+import { Group } from './Group';
+import { BooleanType, ChoiceType, ListType, ObjectType, StringType } from '../../types';
 
 const ATTRIBUTES = [
   new StringType({name: 'type', defaultValue: 'Entertainment'}),
@@ -35,7 +31,7 @@ export type Stream = {
  * There are limitations on which lights can be added to an Entertainment Group, as they need to support the ability
  * to stream, which requires newer lights in the hue ecosystem.
  */
-export default class Entertainment extends Group {
+export class Entertainment extends Group {
 
   constructor(id?: number | string) {
     super(ATTRIBUTES, id);
@@ -65,4 +61,4 @@ export default class Entertainment extends Group {
   get locations(): object {
     return this.getAttributeValue('locations');
   }
-};
+}

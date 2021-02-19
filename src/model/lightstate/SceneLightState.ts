@@ -1,8 +1,8 @@
-import BaseStates from './BaseStates';
+import { BaseStates } from './BaseStates';
 
-export default class SceneLightState extends BaseStates<SceneLightState> {
+export class SceneLightState extends BaseStates<SceneLightState> {
 
   constructor() {
     super();
   }
-};
+}

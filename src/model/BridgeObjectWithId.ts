@@ -1,12 +1,12 @@
-import BridgeObject  from './BridgeObject';
-import Type from '../types/Type';
-import HueBridgeModelError from '../HueBridgeModelError';
+import { BridgeObject } from './BridgeObject';
+import { BaseType } from '../types';
+import { HueBridgeModelError } from '../HueBridgeModelError';
 
 export type BridgeObjectId = number | string
 
-export default abstract class BridgeObjectWithId extends BridgeObject {
+export abstract class BridgeObjectWithId extends BridgeObject {
 
-  protected constructor(attributes: Type<any>[], id?: BridgeObjectId) {
+  protected constructor(attributes: BaseType<any>[], id?: BridgeObjectId) {
     super(attributes);
 
     // Validate that we have an id definition

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import UInt16Type from './UInt16Type';
+import { UInt16Type } from './UInt16Type';
 
 const MAX_VALUE = 65535
   , MIN_VALUE = 0

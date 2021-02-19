@@ -1,6 +1,5 @@
-import UInt16Type from '../../types/UInt16Type';
-import BooleanType from '../../types/BooleanType';
-import Sensor from './Sensor';
+import { BooleanType, UInt16Type } from '../../types';
+import { Sensor } from './Sensor';
 
 const CONFIG_ATTRIBUTES = [
   new UInt16Type({name: 'tholddark', defaultValue: 16000}),
@@ -13,7 +12,7 @@ const STATE_ATTRIBUTES = [
   new BooleanType({name: 'daylight'}),
 ];
 
-export default class ZLLLightlevel extends Sensor {
+export class ZLLLightlevel extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -69,4 +68,4 @@ export default class ZLLLightlevel extends Sensor {
   //   this._updateStateAttribute('daylight', !!value);
   //   return this;
   // }
-};
+}

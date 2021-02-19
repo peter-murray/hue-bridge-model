@@ -1,9 +1,9 @@
 import { expect} from 'chai';
-import SensorCondition from './SensorCondition';
-import * as operators from './operators'
-import { createFromBridge } from '../../index';
-import RuleCondition from './RuleCondition';
-import RuleConditionOperator from './operators/RuleConditionOperator';
+import { SensorCondition } from './SensorCondition';
+import { createFromBridge } from '../../../model';
+import { RuleCondition } from './RuleCondition';
+import { RuleConditionOperator } from './RuleConditionOperator';
+import { Dx, Equals } from './operators';
 
 describe('SensorCondition', () => {
 
@@ -34,14 +34,14 @@ describe('SensorCondition', () => {
         const sensorCondition = new SensorCondition(sensor).when('open').changed()
           , ruleCondition = sensorCondition.getRuleCondition()
         ;
-        validateRuleCondition(ruleCondition, sensor.id, 'open', operators.Dx);
+        validateRuleCondition(ruleCondition, sensor.id, 'open', Dx);
       });
 
       it('should create condition for equals', () => {
         const sensorCondition = new SensorCondition(sensor).when('open').equals(true)
           , ruleCondition = sensorCondition.getRuleCondition()
         ;
-        validateRuleCondition(ruleCondition, sensor.id, 'open', operators.Equals, true);
+        validateRuleCondition(ruleCondition, sensor.id, 'open', Equals, true);
       });
     });
 
@@ -54,14 +54,14 @@ describe('SensorCondition', () => {
         const sensorCondition = new SensorCondition(sensor).when('buttonevent').changed()
           , ruleCondition = sensorCondition.getRuleCondition()
         ;
-        validateRuleCondition(ruleCondition, sensor.id, 'buttonevent', operators.Dx);
+        validateRuleCondition(ruleCondition, sensor.id, 'buttonevent', Dx);
       });
 
       it('should create condition for equals', () => {
         const sensorCondition = new SensorCondition(sensor).when('buttonevent').equals(34)
           , ruleCondition = sensorCondition.getRuleCondition()
         ;
-        validateRuleCondition(ruleCondition, sensor.id, 'buttonevent', operators.Equals, 34);
+        validateRuleCondition(ruleCondition, sensor.id, 'buttonevent', Equals, 34);
       });
     });
 

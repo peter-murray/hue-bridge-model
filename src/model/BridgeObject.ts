@@ -1,5 +1,5 @@
-import Type from '../types/Type';
-import AttributeObject, { LooseObject } from '../AttributeObject';
+import { BaseType } from '../types';
+import { AttributeObject, LooseObject } from '../AttributeObject';
 
 export type BridgeObjectJsonData = {
   node_hue_api: {
@@ -14,11 +14,11 @@ export type BridgeObjectHueData = {
 }
 
 
-export default abstract class BridgeObject extends AttributeObject {
+export abstract class BridgeObject extends AttributeObject {
 
   private populationData: LooseObject | null;
 
-  protected constructor(attributes: Type<any>[]) {
+  protected constructor(attributes: BaseType<any>[]) {
     super(attributes);
     this.populationData = null;
   }

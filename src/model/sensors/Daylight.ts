@@ -1,7 +1,5 @@
-import Sensor from './Sensor';
-import StringType from '../../types/StringType';
-import BooleanType from '../../types/BooleanType';
-import Int8Type from '../../types/Int8Type';
+import { Sensor } from './Sensor';
+import { BooleanType, Int8Type, StringType } from '../../types';
 
 const CONFIG_ATTRIBUTES = [
     new BooleanType({name: 'configured'}),
@@ -16,7 +14,7 @@ const CONFIG_ATTRIBUTES = [
   ]
 ;
 
-export default class Daylight extends Sensor {
+export class Daylight extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -57,4 +55,4 @@ export default class Daylight extends Sensor {
   set daylight(value) {
     this._updateStateAttributeValue('daylight', !!value);
   }
-};
+}

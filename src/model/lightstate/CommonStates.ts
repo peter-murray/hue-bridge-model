@@ -1,6 +1,6 @@
-import BaseStates from './BaseStates';
+import { BaseStates } from './BaseStates';
 
-export default class CommonStates<T> extends BaseStates<T> {
+export class CommonStates<T> extends BaseStates<T> {
 
   constructor(attributes?: string[]) {
     let allAttributes: string[] = ['alert',

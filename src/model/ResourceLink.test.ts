@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import ResourceLink from './ResourceLink';
+import { expect } from 'chai';
+import { ResourceLink } from './ResourceLink';
 
 describe('ResourceLink', () => {
 
@@ -75,7 +75,7 @@ describe('ResourceLink', () => {
       resourceLink.removeLink('groups', 48840);
       resourceLink.removeLink('schedules', 19);
 
-      expect(resourceLink.links).to.deep.equals(originalLinks)
+      expect(resourceLink.links).to.deep.equals(originalLinks);
     });
 
 

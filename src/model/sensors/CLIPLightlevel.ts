@@ -1,6 +1,5 @@
-import CLIPSensor from './CLIPSensor';
-import BooleanType from '../../types/BooleanType';
-import UInt16Type from '../../types/UInt16Type';
+import { CLIPSensor } from './CLIPSensor';
+import { BooleanType, UInt16Type } from '../../types';
 
 const CONFIG_ATTRIBUTES = [
   new UInt16Type({name: 'tholddark', defaultValue: 16000}),
@@ -13,7 +12,7 @@ const STATE_ATTRIBUTES = [
   new BooleanType({name: 'daylight'}),
 ];
 
-export default class CLIPLightlevel extends CLIPSensor {
+export class CLIPLightlevel extends CLIPSensor {
 
   constructor(id?: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -66,4 +65,4 @@ export default class CLIPLightlevel extends CLIPSensor {
   set daylight(value) {
     this._updateStateAttributeValue('daylight', value);
   }
-};
+}

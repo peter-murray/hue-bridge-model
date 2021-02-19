@@ -1,10 +1,7 @@
 // All the valid resource types that the Hue API documentation provides
-import BridgeObjectWithId, { BridgeObjectId } from './BridgeObjectWithId';
-import UInt16Type from '../types/UInt16Type';
-import StringType from '../types/StringType';
-import BooleanType from '../types/BooleanType';
-import ChoiceType from '../types/ChoiceType';
-import HueBridgeModelError from '../HueBridgeModelError';
+import { BridgeObjectId, BridgeObjectWithId } from './BridgeObjectWithId';
+import { BooleanType, ChoiceType, StringType, UInt16Type } from '../types';
+import { HueBridgeModelError } from '../HueBridgeModelError';
 import { LooseObject } from '../AttributeObject';
 
 const VALID_RESOURCELINK_TYPES: string[] = [
@@ -33,7 +30,7 @@ export type Links = {
 }
 
 
-export default class ResourceLink extends BridgeObjectWithId {
+export class ResourceLink extends BridgeObjectWithId {
 
   private _links: Links;
 

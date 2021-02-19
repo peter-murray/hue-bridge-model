@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import ZGPSwitch from './ZGPSwitch';
-import Sensor from './Sensor';
+import { ZGPSwitch } from './ZGPSwitch';
+import { Sensor } from './Sensor';
 
 describe('Sensor :: ZGPSwitch', () => {
 

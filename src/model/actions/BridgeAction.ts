@@ -1,7 +1,6 @@
-import BridgeObject from '../BridgeObject';
-import ChoiceType from '../../types/ChoiceType';
+import { BridgeObject } from '../BridgeObject';
+import { ChoiceType, BaseType } from '../../types';
 import { BridgeActionPayload } from './index';
-import Type from '../../types/Type';
 
 const ATTRIBUTES = [
   new ChoiceType({name: 'method', validValues: ['PUT', 'POST', 'DELETE']}),
@@ -14,9 +13,9 @@ export type BridgeActionData = {
   body?: object,
 }
 
-export default abstract class BridgeAction extends BridgeObject {
+export abstract class BridgeAction extends BridgeObject {
 
-  protected constructor(attributes: Type<any>[], method: string) {
+  protected constructor(attributes: BaseType<any>[], method: string) {
     super([...ATTRIBUTES, ...attributes]);
     this.withMethod(method);
   }

@@ -1,9 +1,7 @@
-import Type from './Type';
-import { isValueDefined, NullableTypeValue } from './Type';
-import { RangedNumberTypeConfig } from './TypeConfig';
+import { BaseType } from './BaseType';
+import { isValueDefined, NullableTypeValue, RangedNumberTypeConfig } from './BaseType';
 
-
-export class RangedNumberType extends Type<number> {
+export class RangedNumberType extends BaseType<number> {
 
   readonly min: number;
 

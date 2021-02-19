@@ -1,7 +1,5 @@
-import ObjectType from '../../types/ObjectType';
-import ListType from '../../types/ListType';
-import StringType from '../../types/StringType';
-import Scene from './Scene';
+import { ListType, ObjectType, StringType } from '../../types';
+import { Scene } from './Scene';
 
 const ATTRIBUTES = [
   new StringType({name: 'group'}),
@@ -9,7 +7,7 @@ const ATTRIBUTES = [
   new ObjectType({name: 'lightstates'}),
 ];
 
-export default class GroupScene extends Scene {
+export class GroupScene extends Scene {
 
   constructor(id?: string) {
     super(ATTRIBUTES, 'GroupScene', id);
@@ -30,4 +28,4 @@ export default class GroupScene extends Scene {
   get lightstates(): object {
     return this.getAttributeValue('lightstates');
   }
-};
+}

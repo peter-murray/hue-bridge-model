@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import CommonStates from "./CommonStates";
+import { CommonStates } from './CommonStates';
 
 const RANGE_ERROR_STRING = 'is not within allowed limits'
   , CHOICES_ERROR_MESSAGE = 'is not one of the allowed values'

@@ -1,10 +1,10 @@
-import BridgeAction, { BridgeActionData } from './BridgeAction';
-import LightStateAction from './LightStateAction';
-import GroupStateAction from './GroupStateAction';
-import HueBridgeModelError from '../../HueBridgeModelError';
-import SensorStateAction from './SensorStateAction';
-import ScheduleStateAction from './ScheduleStateAction';
-import SceneAction from './SceneAction';
+import { BridgeAction, BridgeActionData } from './BridgeAction';
+import { LightStateAction } from './LightStateAction';
+import { GroupStateAction } from './GroupStateAction';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
+import { SensorStateAction } from './SensorStateAction';
+import { ScheduleStateAction } from './ScheduleStateAction';
+import { SceneAction } from './SceneAction';
 
 const REGEX_GROUP_ACTION = /\/groups\/(.*)\/action/
   , REGEX_SENSOR_ACTION = /\/sensors\/(.*)\/state/
@@ -14,13 +14,9 @@ const REGEX_GROUP_ACTION = /\/groups\/(.*)\/action/
   , REGEX_SCENE_ACTION = /\/scenes\/(.*)/
 ;
 
-export {
-  createAction
-};
-
 export type BridgeActionPayload = BridgeAction | BridgeActionData;
 
-function createAction(data: BridgeActionPayload) {
+export function createAction(data: BridgeActionPayload): BridgeAction {
   if (data instanceof BridgeAction) {
     return data;
   } else if (data.address) {

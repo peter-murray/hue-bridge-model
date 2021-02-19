@@ -1,10 +1,10 @@
-import Sensor from '../../sensors/Sensor';
-import HueBridgeModelError from '../../../HueBridgeModelError';
-import RuleConditionOperator from './operators/RuleConditionOperator';
-import { getOperator } from './operators/index';
-import RuleCondition from './RuleCondition';
+import { Sensor } from '../../sensors/Sensor';
+import { HueBridgeModelError } from '../../../HueBridgeModelError';
+import { RuleConditionOperator } from './RuleConditionOperator';
+import { getOperator } from './operators';
+import { RuleCondition } from './RuleCondition';
 
-export default class SensorCondition {
+export class SensorCondition {
 
   //TODO naming
 

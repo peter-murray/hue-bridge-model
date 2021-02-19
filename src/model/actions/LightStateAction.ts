@@ -1,9 +1,8 @@
-import UInt8Type from '../../types/UInt8Type';
-import ObjectType from '../../types/ObjectType';
-import BridgeAction from './BridgeAction';
-import LightState from '../lightstate/LightState';
-import Light from '../Light';
-import HueBridgeModelError from '../../HueBridgeModelError';
+import { ObjectType, UInt8Type } from '../../types';
+import { BridgeAction } from './BridgeAction';
+import { LightState } from '../lightstate/LightState';
+import { Light } from '../Light';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 
 const ATTRIBUTES = [
   new UInt8Type({name: 'light'}),
@@ -11,7 +10,7 @@ const ATTRIBUTES = [
   new ObjectType({name: 'state'}), //TODO this is an actual LightState object, could utilize another type
 ];
 
-export default class LightStateAction extends BridgeAction {
+export class LightStateAction extends BridgeAction {
 
   constructor(light: Light | string | number) {
     super(ATTRIBUTES, 'PUT');

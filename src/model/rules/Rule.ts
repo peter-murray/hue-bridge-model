@@ -1,12 +1,10 @@
-import BridgeObjectWithId from '../BridgeObjectWithId';
-import ChoiceType from '../../types/ChoiceType';
-import StringType from '../../types/StringType';
-import BooleanType from '../../types/BooleanType';
-import RuleCondition  from './conditions/RuleCondition';
-import BridgeAction from '../actions/BridgeAction';
+import { BridgeObjectWithId } from '../BridgeObjectWithId';
+import { BooleanType, ChoiceType, StringType } from '../../types';
+import { RuleCondition } from './conditions/RuleCondition';
+import { BridgeAction } from '../actions/BridgeAction';
 import * as ruleConditions from './conditions/index';
 import { RuleConditionPayload } from './conditions/index';
-import * as ruleActions from '../actions/index';
+import {createAction } from '../actions/index';
 import { BridgeActionPayload } from '../actions/index';
 import { LooseObject } from '../../AttributeObject';
 
@@ -26,7 +24,7 @@ const ATTRIBUTES = [
   // conditions and actions are handled separately
 ];
 
-export default class Rule extends BridgeObjectWithId {
+export class Rule extends BridgeObjectWithId {
 
   private _conditions: RuleCondition[];
 
@@ -190,7 +188,7 @@ function buildConditions(conditions?: RuleConditionPayload[]): RuleCondition[] {
 }
 
 function buildAction(action: BridgeActionPayload): BridgeAction {
-  return ruleActions.createAction(action);
+  return createAction(action);
 }
 
 function buildActions(actions?: BridgeActionPayload[]): BridgeAction[] {

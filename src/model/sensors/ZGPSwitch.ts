@@ -1,8 +1,7 @@
-import UInt16Type from '../../types/UInt16Type';
-import Sensor from './Sensor';
-import Type from '../../types/Type';
+import { BaseType, UInt16Type } from '../../types';
+import { Sensor } from './Sensor';
 
-const CONFIG_ATTRIBUTES: Type<any>[] = [];
+const CONFIG_ATTRIBUTES: BaseType<any>[] = [];
 
 const STATE_ATTRIBUTES = [
   new UInt16Type({name: 'buttonevent'})
@@ -10,7 +9,7 @@ const STATE_ATTRIBUTES = [
 
 
 // Hue Tap Switch - Zigbee Green Power Switch
-export default class ZGPSwitch extends Sensor {
+export class ZGPSwitch extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -31,4 +30,4 @@ export default class ZGPSwitch extends Sensor {
   //     throw new ApiError('Unsupported value as per Hue documentation, https://developers.meethue.com/develop/hue-api/supported-devices');
   //   }
   // }
-};
+}

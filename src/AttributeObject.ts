@@ -1,5 +1,5 @@
-import Type from './types/Type';
-import HueBridgeModelError from './HueBridgeModelError';
+import { BaseType } from './types';
+import { HueBridgeModelError } from './HueBridgeModelError';
 
 export interface LooseObject {
   [key: string]: any
@@ -10,13 +10,13 @@ export interface LooseObject {
 //   [key: string]: Type<any>
 // }
 
-export default abstract class AttributeObject {
+export abstract class AttributeObject {
 
   protected readonly attributes: LooseObject;
 
   protected readonly data: LooseObject;
 
-  protected constructor(attributes: Type<any>[]) {
+  protected constructor(attributes: BaseType<any>[]) {
     this.data = {};
 
     this.attributes = {};

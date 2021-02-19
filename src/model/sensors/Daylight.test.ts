@@ -1,6 +1,6 @@
 import {expect} from 'chai';
-import Daylight from './Daylight';
-import Sensor from './Sensor';
+import { Daylight } from './Daylight';
+import { Sensor } from './Sensor';
 
 describe('Sensor :: Daylight', () => {
 

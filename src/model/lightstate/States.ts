@@ -1,16 +1,14 @@
-import UInt8Type from '../../types/UInt8Type';
-import HueBridgeModelError from '../../HueBridgeModelError';
+import { UInt8Type, BaseType, RangedNumberType } from '../../types';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 import stateTypes from './stateTypes';
-import Type from '../../types/Type';
-import { RangedNumberType } from '../../types/RangedNumberType';
 
 const PERCENTAGE = new UInt8Type({name: 'percentage', min: 0, max: 100})
   , DEGREES = new UInt8Type({name: 'degrees', min: 0, max: 360})
 ;
 
-type NameToType = { [key: string]: Type<any> }
+type NameToType = { [key: string]: BaseType<any> }
 
-export default abstract class States<T> {
+export abstract class States<T> {
 
   private _state: object;
 
@@ -19,7 +17,7 @@ export default abstract class States<T> {
   protected me: T;
 
   constructor(attributes: string[]) {
-    const states: { [key: string]: Type<any> } = {};
+    const states: { [key: string]: BaseType<any> } = {};
 
     attributes.forEach(attribute => {
       // @ts-ignore
@@ -117,7 +115,7 @@ export default abstract class States<T> {
       return Math.round((stateDefinition.getRange() * validatedValue) / range.max);
     }
   }
-};
+}
 
 //TODO consider removing this is test can pass - TypeScript
 //TODO this is now in the utils package

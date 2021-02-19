@@ -1,6 +1,6 @@
-import CommonStates from './CommonStates';
+import { CommonStates } from './CommonStates';
 
-export default class LightState extends CommonStates<LightState> {
+export class LightState extends CommonStates<LightState> {
 
   constructor() {
     super(['rgb']);
@@ -49,4 +49,4 @@ export default class LightState extends CommonStates<LightState> {
       return this._setStateValue('rgb', [red, green, blue]);
     }
   }
-};
+}

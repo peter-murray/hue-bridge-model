@@ -1,10 +1,5 @@
-import UInt8Type from '../../types/UInt8Type';
-import ChoiceType from '../../types/ChoiceType';
-import ListType from '../../types/ListType';
-import BooleanType from '../../types/BooleanType';
-import StringType from '../../types/StringType';
-import Int16Type from '../../types/Int16Type';
-import Sensor from './Sensor';
+import { BooleanType, ChoiceType, Int16Type, ListType, StringType, UInt8Type } from '../../types';
+import { Sensor } from './Sensor';
 
 const CONFIG_ATTRIBUTES = [
   new BooleanType({name: 'reachable'}),
@@ -18,7 +13,7 @@ const STATE_ATTRIBUTES = [
 ];
 
 // Hue Dimmer Switch
-export default class ZLLSwitch extends Sensor {
+export class ZLLSwitch extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -55,4 +50,4 @@ export default class ZLLSwitch extends Sensor {
   get buttonevent(): number {
     return this.getStateAttributeValue('buttonevent');
   }
-};
+}

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import FloatType from './FloatType';
+import { FloatType } from './FloatType';
 
 const MAX_VALUE = Number.MAX_VALUE
   , MIN_VALUE = -Number.MAX_VALUE

@@ -1,5 +1,5 @@
-import BooleanType from '../../types/BooleanType';
-import Sensor from './Sensor';
+import { BooleanType } from '../../types';
+import { Sensor } from './Sensor';
 
 const CONFIG_ATTRIBUTES = [
     new BooleanType({name: 'reachable'}),
@@ -9,7 +9,7 @@ const CONFIG_ATTRIBUTES = [
   ]
 ;
 
-export default class Daylight extends Sensor {
+export class GeoFence extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -18,4 +18,4 @@ export default class Daylight extends Sensor {
   get presence(): boolean {
     return this.getStateAttributeValue('presence');
   }
-};
+}

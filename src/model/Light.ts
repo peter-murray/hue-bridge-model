@@ -1,9 +1,7 @@
-import BridgeObjectWithId, { BridgeObjectId } from './BridgeObjectWithId';
+import { BridgeObjectId, BridgeObjectWithId } from './BridgeObjectWithId';
 import { LooseObject } from '../AttributeObject';
 import { ColorGamut, getColorGamut } from './ColorGamuts';
-
-import { types } from '../index';
-import StringType from '../types/StringType';
+import { ObjectType, StringType, UInt8Type } from '../types';
 
 const MODEL_TO_COLOR_GAMUT: { [key: string]: string } = {
   'LCT001': 'B',
@@ -62,7 +60,7 @@ const MODEL_TO_COLOR_GAMUT: { [key: string]: string } = {
 };
 
 const ATTRIBUTES = [
-  new types.UInt8Type({name: 'id'}),
+  new UInt8Type({name: 'id'}),
   new StringType({name: 'name', minLength: 0, maxLength: 32}),
   new StringType({name: 'type'}),
   new StringType({name: 'modelid'}),
@@ -70,10 +68,10 @@ const ATTRIBUTES = [
   new StringType({name: 'uniqueid'}),
   new StringType({name: 'productname'}),
   new StringType({name: 'productid'}),
-  new types.ObjectType({name: 'state'}),
-  new types.ObjectType({name: 'capabilities'}),
-  new types.ObjectType({name: 'config'}),
-  new types.ObjectType({
+  new ObjectType({name: 'state'}),
+  new ObjectType({name: 'capabilities'}),
+  new ObjectType({name: 'config'}),
+  new ObjectType({
     name: 'swupdate',
     types: [
       new StringType({name: 'state'}),
@@ -86,7 +84,7 @@ const ATTRIBUTES = [
 
 //TODO add support for making it easier to set power failure modes config.startup.mode = 'powerfail'
 
-export default class Light extends BridgeObjectWithId {
+export class Light extends BridgeObjectWithId {
 
   protected mappedColorGamut: string | null = null;
 

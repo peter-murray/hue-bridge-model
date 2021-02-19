@@ -1,11 +1,5 @@
-import BooleanType from '../types/BooleanType';
-import StringType from '../types/StringType';
-import UInt16Type from '../types/UInt16Type';
-import ObjectType from '../types/ObjectType';
-import ChoiceType from '../types/ChoiceType';
-import UInt8Type from '../types/UInt8Type';
-import BridgeObject from './BridgeObject';
-
+import { BooleanType, ChoiceType, ObjectType, StringType, UInt16Type, UInt8Type } from '../types';
+import { BridgeObject } from './BridgeObject';
 
 const ATTRIBUTES = [
   // Modifiable Attributes
@@ -119,7 +113,7 @@ type InternetServices = {
   swupdate: string
 }
 
-export default class BridgeConfiguration extends BridgeObject {
+export class BridgeConfiguration extends BridgeObject {
 
   constructor() {
     super(ATTRIBUTES);

@@ -1,13 +1,6 @@
-import Int8Type from '../../types/Int8Type';
-import StringType from '../../types/StringType';
-import ListType from '../../types/ListType';
-import ObjectType from '../../types/ObjectType';
-import BooleanType from '../../types/BooleanType';
-import UInt16Type from '../../types/UInt16Type';
-import BridgeObjectWithId from '../BridgeObjectWithId';
-import Type from '../../types/Type';
-import HueBridgeModelError from '../../HueBridgeModelError';
-
+import { BaseType, BooleanType, Int8Type, ListType, ObjectType, StringType, UInt16Type } from '../../types';
+import { BridgeObjectWithId } from '../BridgeObjectWithId';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 
 const ROOM_CLASSES = [
   'Living room',
@@ -91,9 +84,9 @@ const ATTRIBUTES = [
   new BooleanType({name: 'recycle', defaultValue: false}),
 ];
 
-export default class Group extends BridgeObjectWithId {
+export class Group extends BridgeObjectWithId {
 
-  constructor(attributes: Type<any>[], id?: string | number) {
+  constructor(attributes: BaseType<any>[], id?: string | number) {
     super([...ATTRIBUTES, ...attributes], id);
 
     if (!this.attributes.type) {
@@ -142,4 +135,4 @@ export default class Group extends BridgeObjectWithId {
   static getAllGroupClasses(): string[] {
     return ROOM_CLASSES;
   }
-};
+}

@@ -1,8 +1,7 @@
-import UInt8Type from '../../types/UInt8Type';
-import ObjectType from '../../types/ObjectType';
-import BridgeAction from './BridgeAction';
-import Sensor from '../sensors/Sensor';
-import HueBridgeModelError from '../../HueBridgeModelError';
+import { ObjectType, UInt8Type } from '../../types';
+import { BridgeAction } from './BridgeAction';
+import { Sensor } from '../sensors/Sensor';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 
 const ATTRIBUTES = [
   new UInt8Type({name: 'sensor'}),
@@ -10,7 +9,7 @@ const ATTRIBUTES = [
   new ObjectType({name: 'state'}),
 ];
 
-export default class SensorStateAction extends BridgeAction {
+export class SensorStateAction extends BridgeAction {
 
   constructor(sensor: Sensor | number | string) {
     super(ATTRIBUTES, 'PUT');
@@ -46,4 +45,4 @@ export default class SensorStateAction extends BridgeAction {
     }
     throw new HueBridgeModelError('No state has been set on the SensorStateAction');
   }
-};
+}

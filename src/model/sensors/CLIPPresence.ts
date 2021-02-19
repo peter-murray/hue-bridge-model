@@ -1,14 +1,13 @@
-import BooleanType from '../../types/BooleanType';
-import CLIPSensor from './CLIPSensor';
-import Type from '../../types/Type';
+import { BaseType, BooleanType } from '../../types';
+import { CLIPSensor } from './CLIPSensor';
 
-const CONFIG_ATTRIBUTES: Type<any>[] = [];
+const CONFIG_ATTRIBUTES: BaseType<any>[] = [];
 
 const STATE_ATTRIBUTES = [
   new BooleanType({name: 'presence'}),
 ];
 
-export default class CLIPPresence extends CLIPSensor {
+export class CLIPPresence extends CLIPSensor {
 
   constructor(id?: string | number) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -21,4 +20,4 @@ export default class CLIPPresence extends CLIPSensor {
   set presence(value) {
     this._updateStateAttributeValue('presence', value);
   }
-};
+}

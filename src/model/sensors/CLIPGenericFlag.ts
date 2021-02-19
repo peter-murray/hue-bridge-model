@@ -1,14 +1,13 @@
-import CLIPSensor from './CLIPSensor';
-import BooleanType from '../../types/BooleanType';
-import Type from '../../types/Type';
+import { CLIPSensor } from './CLIPSensor';
+import { BaseType, BooleanType } from '../../types';
 
-const CONFIG_ATTRIBUTES: Type<any>[] = [];
+const CONFIG_ATTRIBUTES: BaseType<any>[] = [];
 
 const STATE_ATTRIBUTES = [
   new BooleanType({name: 'flag'}),
 ];
 
-export default class CLIPGenericFlag extends CLIPSensor {
+export class CLIPGenericFlag extends CLIPSensor {
 
   constructor(id?: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -21,4 +20,4 @@ export default class CLIPGenericFlag extends CLIPSensor {
   set flag(value) {
     this._updateStateAttributeValue('flag', value);
   }
-};
+}

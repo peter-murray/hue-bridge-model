@@ -1,7 +1,5 @@
-'use strict';
-
 import { RangedNumberType } from './RangedNumberType';
-import { NumberTypeConfig } from './TypeConfig';
+import { NumberTypeConfig } from './BaseType';
 
 const FLOAT_DEFAULTS = {
   type: 'float',
@@ -9,7 +7,7 @@ const FLOAT_DEFAULTS = {
   typeMax: Number.MAX_VALUE
 }
 
-export default class FloatType extends RangedNumberType {
+export class FloatType extends RangedNumberType {
 
   constructor(config: NumberTypeConfig) {
     super({...config, ...FLOAT_DEFAULTS});
@@ -18,4 +16,4 @@ export default class FloatType extends RangedNumberType {
   _convertToType(val: any) {
     return parseFloat(val);
   }
-};
+}

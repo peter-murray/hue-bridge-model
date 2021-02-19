@@ -1,9 +1,5 @@
-import UInt8Type from '../../types/UInt8Type';
-import StringType from '../../types/StringType';
-import ObjectType from '../../types/ObjectType';
-import BooleanType from '../../types/BooleanType';
-import BridgeObjectWithId from '../BridgeObjectWithId';
-import Type from '../../types/Type';
+import { BaseType, BooleanType, ObjectType, StringType, UInt8Type } from '../../types';
+import { BridgeObjectWithId } from '../BridgeObjectWithId';
 
 const COMMON_ATTRIBUTES = [
   new UInt8Type({name: 'id'}),
@@ -33,16 +29,16 @@ const COMMON_CONFIG_ATTRIBUTES = [
   new BooleanType({name: 'on', defaultValue: true}),
 ];
 
-type NameToType = {[key: string]: Type<any>}
+type NameToType = {[key: string]: BaseType<any>}
 
-export default class Sensor extends BridgeObjectWithId {
+export class Sensor extends BridgeObjectWithId {
 
   private _configAttributes: NameToType;
 
   private _stateAttributes: NameToType;
 
   //TODO consider removing data from here as we have _populate to do this
-  constructor(configAttributes: Type<any>[], stateAttributes: Type<any>[], id?: string | number, data?: object) {
+  constructor(configAttributes: BaseType<any>[], stateAttributes: BaseType<any>[], id?: string | number, data?: object) {
     const stateAttribute = new ObjectType({
         name: 'state',
         types: [...COMMON_STATE_ATTRIBUTES, ...stateAttributes]
@@ -51,7 +47,7 @@ export default class Sensor extends BridgeObjectWithId {
         name: 'config',
         types: [...COMMON_CONFIG_ATTRIBUTES, ...configAttributes]
       })
-      , allAttributes: Type<any>[] = [...COMMON_ATTRIBUTES, stateAttribute, configAttribute]
+      , allAttributes: BaseType<any>[] = [...COMMON_ATTRIBUTES, stateAttribute, configAttribute]
     ;
 
     super(allAttributes, id);
@@ -212,6 +208,4 @@ export default class Sensor extends BridgeObjectWithId {
       });
     }
   }
-};
-
-
+}

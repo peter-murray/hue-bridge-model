@@ -1,8 +1,5 @@
-import UInt8Type from '../../types/UInt8Type';
-import ChoiceType from '../../types/ChoiceType';
-import BooleanType from '../../types/BooleanType';
-import UInt16Type from '../../types/UInt16Type';
-import Sensor from './Sensor';
+import { BooleanType, ChoiceType, UInt16Type, UInt8Type } from '../../types';
+import { Sensor } from './Sensor';
 
 const CONFIG_ATTRIBUTES = [
   new UInt8Type({name: 'battery'}),
@@ -17,7 +14,7 @@ const STATE_ATTRIBUTES = [
 ];
 
 // Hue Motion Sensor
-export default class ZLLPresense extends Sensor {
+export class ZLLPresence extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -66,4 +63,4 @@ export default class ZLLPresense extends Sensor {
   get presence(): boolean {
     return this.getStateAttributeValue('presence');
   }
-};
+}

@@ -1,6 +1,6 @@
-import States from './States';
+import { States } from './States';
 
-export default abstract class BaseStates<T> extends States<T> {
+export abstract class BaseStates<T> extends States<T> {
 
   constructor(attributes?: string[]) {
     super([

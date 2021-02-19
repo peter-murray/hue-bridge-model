@@ -1,9 +1,7 @@
-import Type from './Type';
-import { isValueDefined } from './Type';
-import { StringTypeConfig } from './TypeConfig';
+import { BaseType } from './BaseType';
+import { isValueDefined, StringTypeConfig } from './BaseType';
 
-
-export default class StringType extends Type<string> {
+export class StringType extends BaseType<string> {
 
   readonly minLength?: number
 
@@ -56,4 +54,4 @@ export default class StringType extends Type<string> {
   _convertToType(val: any) {
     return `${val}`;
   }
-};
+}

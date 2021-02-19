@@ -1,14 +1,13 @@
-import Int16Type from '../../types/Int16Type';
-import Sensor from './Sensor';
-import Type from '../../types/Type';
+import { BaseType, Int16Type } from '../../types';
+import { Sensor } from './Sensor';
 
-const CONFIG_ATTRIBUTES: Type<any>[] = [];
+const CONFIG_ATTRIBUTES: BaseType<any>[] = [];
 
 const STATE_ATTRIBUTES = [
   new Int16Type({name: 'temperature'}),
 ];
 
-export default class ZLLTemperature extends Sensor {
+export class ZLLTemperature extends Sensor {
 
   constructor(id: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);
@@ -17,4 +16,4 @@ export default class ZLLTemperature extends Sensor {
   get temperature(): number {
     return this.getStateAttributeValue('temperature');
   }
-};
+}

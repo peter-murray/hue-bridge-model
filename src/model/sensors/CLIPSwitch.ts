@@ -1,14 +1,13 @@
-import CLIPSensor from './CLIPSensor';
-import UInt16Type from '../../types/UInt16Type';
-import Type from '../../types/Type';
+import { CLIPSensor } from './CLIPSensor';
+import { BaseType, UInt16Type } from '../../types';
 
-const CONFIG_ATTRIBUTES: Type<any>[] = [];
+const CONFIG_ATTRIBUTES: BaseType<any>[] = [];
 
 const STATE_ATTRIBUTES = [
   new UInt16Type({name: 'buttonevent'}),
 ];
 
-export default class CLIPSwitch extends CLIPSensor {
+export class CLIPSwitch extends CLIPSensor {
 
   constructor(id?: number | string) {
     super(CONFIG_ATTRIBUTES, STATE_ATTRIBUTES, id);

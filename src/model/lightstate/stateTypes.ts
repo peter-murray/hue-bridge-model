@@ -1,12 +1,15 @@
-import BooleanType from '../../types/BooleanType';
-import UInt8Type from '../../types/UInt8Type';
-import UInt16Type from '../../types/UInt16Type';
-import ListType from '../../types/ListType';
-import FloatType from '../../types/FloatType';
-import ChoiceType from '../../types/ChoiceType';
-import Int8Type from '../../types/Int8Type';
-import Int16Type from '../../types/Int16Type';
-import StringType from '../../types/StringType';
+import {
+  BooleanType,
+  ChoiceType,
+  FloatType,
+  Int16Type,
+  Int8Type,
+  ListType,
+  StringType,
+  UInt16Type,
+  UInt8Type
+} from '../../types';
+
 
 export default {
   on: new BooleanType({

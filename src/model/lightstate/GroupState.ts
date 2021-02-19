@@ -1,6 +1,6 @@
-import CommonStates from './CommonStates';
+import { CommonStates } from './CommonStates';
 
-export default class GroupState extends CommonStates<GroupState> {
+export class GroupState extends CommonStates<GroupState> {
 
   constructor() {
     super(['scene']);
@@ -9,4 +9,4 @@ export default class GroupState extends CommonStates<GroupState> {
   scene(value: string): GroupState {
     return this._setStateValue('scene', value);
   }
-};
+}

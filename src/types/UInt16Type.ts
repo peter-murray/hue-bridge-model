@@ -1,7 +1,5 @@
-'use strict';
-
 import { RangedNumberType } from './RangedNumberType';
-import { NumberTypeConfig, RangedNumberTypeConfig } from './TypeConfig';
+import { NumberTypeConfig } from './BaseType';
 
 const UINT16_DEFAULTS = {
   type: 'uint16',
@@ -9,7 +7,7 @@ const UINT16_DEFAULTS = {
   typeMax: 65535
 }
 
-export default class UInt16Type extends RangedNumberType {
+export class UInt16Type extends RangedNumberType {
 
   constructor(config: NumberTypeConfig) {
     super({...config, ...UINT16_DEFAULTS});
@@ -18,4 +16,4 @@ export default class UInt16Type extends RangedNumberType {
   _convertToType(val: any) {
     return parseInt(val);
   }
-};
+}

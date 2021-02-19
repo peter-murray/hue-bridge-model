@@ -1,18 +1,15 @@
-'use strict';
-
-import ObjectType from '../../types/ObjectType';
-import Int8Type from '../../types/Int8Type';
-import BridgeAction from './BridgeAction';
-import Group from '../groups/Group';
-import GroupState from '../lightstate/GroupState';
-import HueBridgeModelError from '../../HueBridgeModelError';
+import { ObjectType, Int8Type } from '../../types';
+import { BridgeAction } from './BridgeAction';
+import { Group } from '../groups/Group';
+import { GroupState } from '../lightstate/GroupState';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 
 const ATTRIBUTES = [
   new Int8Type({name: 'group'}),
   new ObjectType({name: 'state'}), //TODO this is an actual GroupState object
 ];
 
-export default class GroupStateAction extends BridgeAction {
+export class GroupStateAction extends BridgeAction {
 
   constructor(group: Group | number | string) {
     super(ATTRIBUTES, 'PUT');

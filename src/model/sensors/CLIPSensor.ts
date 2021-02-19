@@ -1,8 +1,5 @@
-import BooleanType from '../../types/BooleanType';
-import UInt8Type from '../../types/UInt8Type';
-import StringType from '../../types/StringType';
-import Sensor from './Sensor';
-import Type from '../../types/Type';
+import { BaseType, BooleanType, StringType, UInt8Type } from '../../types';
+import { Sensor } from './Sensor';
 
 const CONFIG_ATTRIBUTES = [
   new BooleanType({name: 'reachable'}),
@@ -10,9 +7,9 @@ const CONFIG_ATTRIBUTES = [
   new StringType({name: 'url', minLength: 0, maxLength: 64}),
 ];
 
-export default class CLIPSensor extends Sensor {
+export class CLIPSensor extends Sensor {
 
-  constructor(configAttributes: Type<any>[], stateAttributes: Type<any>[], id?: string | number) {
+  constructor(configAttributes: BaseType<any>[], stateAttributes: BaseType<any>[], id?: string | number) {
     super([...CONFIG_ATTRIBUTES, ...configAttributes], stateAttributes, id);
   }
 
@@ -60,4 +57,4 @@ export default class CLIPSensor extends Sensor {
   get recycle(): boolean {
     return this.getAttributeValue('recycle');
   }
-};
+}

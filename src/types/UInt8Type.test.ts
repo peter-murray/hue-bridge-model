@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import UInt8Type from './UInt8Type';
+import { UInt8Type } from './UInt8Type';
 
 const MAX_VALUE = 255
   , MIN_VALUE = 0

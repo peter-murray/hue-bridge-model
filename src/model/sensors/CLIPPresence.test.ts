@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import CLIPPresence from './CLIPPresence';
+import { CLIPPresence } from './CLIPPresence';
 
 describe('CLIPPresence', () => {
 

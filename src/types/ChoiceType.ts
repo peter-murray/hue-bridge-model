@@ -1,8 +1,6 @@
-import Type from './Type';
-import { ChoiceTypeConfig } from './TypeConfig';
+import { BaseType, ChoiceTypeConfig } from './BaseType';
 
-
-export default class ChoiceType<T> extends Type<T> {
+export class ChoiceType<T> extends BaseType<T> {
 
   public validValues: T[];
 

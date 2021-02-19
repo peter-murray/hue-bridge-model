@@ -1,11 +1,10 @@
-import Type, { isValueDefined } from './Type';
-import { TypeConfig } from './TypeConfig';
-import { createFromString, isBridgeTime, isTimePattern } from '../timePatterns/index';
-import HueBridgeModelError from '../HueBridgeModelError';
-import BridgeTime from '../timePatterns/BridgeTime';
+import { BaseType, isValueDefined, TypeConfig } from './BaseType';
+import { createFromString, isTimePattern } from '../timePatterns';
+import { HueBridgeModelError } from '../HueBridgeModelError';
+import { BridgeTime } from '../time/BridgeTime';
 
 
-export default class TimePatternType extends Type<BridgeTime> {
+export class TimePatternType extends BaseType<BridgeTime> {
 
   constructor(config: TypeConfig<string>) {
     super({...config, type: 'timePattern'});
@@ -22,7 +21,7 @@ export default class TimePatternType extends Type<BridgeTime> {
       return checkedValue;
     }
 
-    if (isBridgeTime(value)) {
+    if (value instanceof BridgeTime) {
       return value.toString();
     } else if (isTimePattern(value)) {
       return createFromString(value).toString();
@@ -35,4 +34,4 @@ export default class TimePatternType extends Type<BridgeTime> {
   _convertToType(val: any) {
     return createFromString(`${val}`);
   }
-};
+}

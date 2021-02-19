@@ -1,8 +1,7 @@
-import BridgeAction from './BridgeAction';
-import ObjectType from '../../types/ObjectType';
-import StringType from '../../types/StringType';
-import Scene from '../scenes/Scene';
-import HueBridgeModelError from '../../HueBridgeModelError';
+import { BridgeAction } from './BridgeAction';
+import { ObjectType, StringType } from '../../types';
+import { Scene } from '../scenes/Scene';
+import { HueBridgeModelError } from '../../HueBridgeModelError';
 
 const ATTRIBUTES = [
   new StringType({name: 'scene'}),
@@ -10,7 +9,7 @@ const ATTRIBUTES = [
   new ObjectType({name: 'state'}),
 ];
 
-export default class SceneAction extends BridgeAction {
+export class SceneAction extends BridgeAction {
 
   constructor(scene: Scene | string) {
     super(ATTRIBUTES, 'PUT');

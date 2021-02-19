@@ -1,14 +1,12 @@
-import Group from './Group';
-import StringType from '../../types/StringType';
-import ListType from '../../types/ListType';
-
+import { Group } from './Group';
+import { ListType, StringType } from '../../types';
 
 const ATTRIBUTES = [
   new StringType({name: 'type', defaultValue: 'LightGroup'}),
   new ListType({name: 'lights', minEntries: 1, entryType: new StringType({name: 'lightId'})}),
 ];
 
-export default class LightGroup extends Group {
+export class LightGroup extends Group {
 
   constructor(id?: string | number) {
     super(ATTRIBUTES, id);
@@ -21,4 +19,4 @@ export default class LightGroup extends Group {
   get lights(): string[] {
     return this.getAttributeValue('lights');
   }
-};
+}

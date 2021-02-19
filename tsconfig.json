@@ -3,12 +3,12 @@
     "target": "ES2018",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./lib/cjs",
+    "outDir": "./dist/cjs",
     "strict": true,
     "esModuleInterop": true
   },
   "exclude": [
     "**/*.test.ts",
-    "./lib"
+    "./dist"
   ]
 }

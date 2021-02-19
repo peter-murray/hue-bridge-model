@@ -1,11 +1,11 @@
-import Group from '../../groups/Group';
-import RuleCondition, { RuleConditionData } from './RuleCondition';
-import {getOperator} from './operators/index';
-import RuleConditionOperator from './operators/RuleConditionOperator';
-import HueBridgeModelError from '../../../HueBridgeModelError';
+import { Group } from '../../groups/Group';
+import { RuleCondition, RuleConditionData } from './RuleCondition';
+import {getOperator} from './operators';
+import { RuleConditionOperator } from './RuleConditionOperator';
+import { HueBridgeModelError } from '../../../HueBridgeModelError';
 
 
-export default class GroupCondition {
+export class GroupCondition {
 
   readonly id: string | number;
 

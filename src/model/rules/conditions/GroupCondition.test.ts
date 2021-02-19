@@ -1,8 +1,8 @@
-import {expect} from 'chai';
-import GroupCondition from './GroupCondition';
-import * as operators from './operators/index'
-import RuleCondition from './RuleCondition';
-import RuleConditionOperator from './operators/RuleConditionOperator';
+import { expect } from 'chai';
+import { GroupCondition } from './GroupCondition';
+import * as operators from './operators';
+import { RuleCondition } from './RuleCondition';
+import { RuleConditionOperator } from './RuleConditionOperator';
 
 //TODO finish off tests
 
@@ -26,8 +26,6 @@ describe('GroupCondition', () => {
 
 
   describe('creating valid conditions', () => {
-
-
 
 
     describe('attribute all_on', () => {
