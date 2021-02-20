@@ -1,5 +1,5 @@
 import { BaseType, isValueDefined, TypeConfig } from './BaseType';
-import { createFromString, isTimePattern } from '../timePatterns';
+import { createFromString, isTimePattern } from '../time';
 import { HueBridgeModelError } from '../HueBridgeModelError';
 import { BridgeTime } from '../time/BridgeTime';
 

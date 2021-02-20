@@ -19,4 +19,4 @@ export abstract class BridgeObjectWithId extends BridgeObject {
   get id(): BridgeObjectId {
     return this.getAttributeValue('id');
   }
-};
+}

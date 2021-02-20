@@ -16,7 +16,7 @@ import { RandomizedTimer } from './time/RandomizedTimer';
 import { RecurringRandomizedTimer } from './time/RecurringRandomizedTimer';
 import { HueBridgeModelError } from './HueBridgeModelError';
 
-export { isRecurring, isTimePattern } from './time/timeUtil';
+export { isRecurring, isTimePattern, WEEKDAYS } from './time/timeUtil';
 
 export {
   AbsoluteTime,
@@ -53,50 +53,3 @@ export function createFromString(str: string) {
     throw new HueBridgeModelError(`Unable to determine a valid time pattern for string: "${str}"`);
   }
 }
-
-// export function isTimePattern(str: string): boolean {
-//   return AbsoluteTime.matches(str)
-//     || RecurringTime.matches(str)
-//     || RandomizedTime.matches(str)
-//     || RecurringRandomizedTime.matches(str)
-//     || Timer.matches(str)
-//     || RecurringTimer.matches(str)
-//     || RandomizedTimer.matches(str)
-//     || RecurringRandomizedTimer.matches(str);
-// }
-
-// export function createAbsoluteTime(value: string | Date | AbsoluteTime) {
-//   return new AbsoluteTime(value);
-// }
-//
-// export function createRandomizedTime(value: string | Date | RandomizedTime) {
-//   return new RandomizedTime(value);
-// }
-//
-// export function createRecurringTime(weekdays: number, value: string | Date | RecurringTime) {
-//   return new RecurringTime(weekdays, value);
-// }
-//
-// export function createRecurringRandomizedTime(value: string | Date | RecurringRandomizedTime) {
-//   return new RecurringRandomizedTime(value);
-// }
-//
-// export function createTimeInterval(value: string | TimeInterval) {
-//   return new TimeInterval(value);
-// }
-//
-// export function createTimer(value: string | Timer) {
-//   return new Timer(value);
-// }
-//
-// export function createRecurringTimer(value: string | Date | RecurringTimer) {
-//   return new RecurringTimer(value);
-// }
-//
-// export function createRandomizedTimer(value: string | RandomizedTimer) {
-//   return new RandomizedTimer(value);
-// }
-//
-// export function createRecurringRandomizedTimer(value: string | RecurringRandomizedTimer) {
-//   return new RecurringRandomizedTimer(value);
-// }

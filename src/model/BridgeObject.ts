@@ -103,4 +103,4 @@ export abstract class BridgeObject extends AttributeObject {
 
     return self;
   }
-};
+}
