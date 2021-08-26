@@ -60,6 +60,7 @@ export * from './model/sensors/GeoFence';
 export * from './model/rules/Rule';
 export * from './model/rules/conditions/SensorCondition';
 export * from './model/rules/conditions/GroupCondition';
+export * from './model/rules/conditions/RuleCondition';
 export * from './model/actions/LightStateAction';
 export * from './model/actions/SensorStateAction';
 export * from './model/actions/GroupStateAction';
