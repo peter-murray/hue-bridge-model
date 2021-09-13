@@ -27,7 +27,11 @@ describe('TimeInterval', () => {
         new TimeInterval(new Date());
         expect.fail('should not get here');
       } catch (err) {
-        expect(err.message).to.contain('Cannot');
+        if (err instanceof Error) {
+          expect(err.message).to.contain('Cannot');
+        } else {
+          expect.fail('err is not a type of Error');
+        }
       }
     });
 

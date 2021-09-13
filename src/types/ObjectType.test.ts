@@ -26,7 +26,11 @@ describe('ObjectType', () => {
         type.getValue(data);
         expect.fail('should not get here');
       } catch(err) {
-        expect(err.message).to.contain(expectedMessage);
+        if (err instanceof Error) {
+          expect(err.message).to.contain(expectedMessage);
+        } else {
+          expect.fail('Expected error is not an instance of Error');
+        }
       }
     }
 

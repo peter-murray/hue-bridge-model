@@ -72,7 +72,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(errorString);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(errorString);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -160,7 +164,11 @@ describe('Hue API #lightState', () => {
             expect.fail('Should have thrown an error');
           } catch (err) {
             expect(err).to.exist;
-            expect(err.message).to.contain(errorString);
+            if (err instanceof Error) {
+              expect(err.message).to.contain(errorString);
+            } else {
+              expect.fail('Expected error is not an instance of Error');
+            }
           }
         }
 
@@ -212,7 +220,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(errorString);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(errorString);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -300,7 +312,11 @@ describe('Hue API #lightState', () => {
             expect.fail('Should have thrown an error');
           } catch (err) {
             expect(err).to.exist;
-            expect(err.message).to.contain(expected);
+            if (err instanceof Error) {
+              expect(err.message).to.contain(expected);
+            } else {
+              expect.fail('Expected error is not an instance of Error');
+            }
           }
         }
 
@@ -364,7 +380,11 @@ describe('Hue API #lightState', () => {
             expect.fail('Should have thrown an error');
           } catch (err) {
             expect(err).to.exist;
-            expect(err.message).to.contain(expected);
+            if (err instanceof Error) {
+              expect(err.message).to.contain(expected);
+            } else {
+              expect.fail('Expected error is not an instance of Error');
+            }
           }
         }
 
@@ -519,7 +539,12 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(CHOICES_ERROR_MESSAGE);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(CHOICES_ERROR_MESSAGE);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
+          
         }
       }
 
@@ -588,7 +613,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -649,7 +678,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -804,7 +837,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -893,7 +930,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -987,7 +1028,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -1081,7 +1126,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 
@@ -1253,7 +1302,11 @@ describe('Hue API #lightState', () => {
           expect.fail('Should have thrown an error');
         } catch (err) {
           expect(err).to.exist;
-          expect(err.message).to.contain(expected);
+          if (err instanceof Error) {
+            expect(err.message).to.contain(expected);
+          } else {
+            expect.fail('Expected error is not an instance of Error');
+          }
         }
       }
 

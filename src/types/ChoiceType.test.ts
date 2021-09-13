@@ -16,7 +16,11 @@ describe('ChoiceType', () => {
       type.getValue(val);
       expect.fail('Should not get here');
     } catch (err) {
-      expect(err.message).to.contain(errMessage);
+      if (err instanceof Error) {
+        expect(err.message).to.contain(errMessage);
+      } else {
+        expect.fail('err should be of type Error');
+      }
     }
   }
 

@@ -27,7 +27,11 @@ describe('Int8Type', () => {
       type.getValue(value);
       expect.fail('should not get here');
     } catch (err) {
-      expect(err.message).to.contain(message);
+      if (err instanceof Error) {
+        expect(err.message).to.contain(message);
+      } else {
+        expect.fail('Expected error is not an instance of Error');
+      }
     }
   }
 

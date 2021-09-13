@@ -29,7 +29,9 @@ describe('#Timer', () => {
       expect.fail('should have errored');
     } catch (err) {
       expect(err).to.be.instanceOf(TypeError);
-      expect(err.message).to.include('not within allowed limits');
+      if (err instanceof Error) {
+        expect(err.message).to.include('not within allowed limits');
+      }
     }
   });
 
@@ -40,8 +42,10 @@ describe('#Timer', () => {
       result.minutes(100);
       expect.fail('should have errored');
     } catch (err) {
-      expect(err).to.be.instanceOf(TypeError);
-      expect(err.message).to.include('not within allowed limit');
+      expect(err).to.be.instanceOf(TypeError);4
+      if (err instanceof Error) {
+        expect(err.message).to.include('not within allowed limit');
+      }
     }
   });
 
@@ -53,7 +57,9 @@ describe('#Timer', () => {
       expect.fail('should have errored');
     } catch (err) {
       expect(err).to.be.instanceOf(TypeError);
-      expect(err.message).to.include('not within allowed limits');
+      if (err instanceof Error) {
+        expect(err.message).to.include('not within allowed limits');
+      }
     }
   });
 

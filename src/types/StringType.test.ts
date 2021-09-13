@@ -92,7 +92,11 @@ describe('StringType', () => {
         type.getValue(val);
         expect.fail('Should not get here');
       } catch(err) {
-        expect(err.message).to.contain(errMessageContent)
+        if (err instanceof Error) {
+          expect(err.message).to.contain(errMessageContent);
+        } else {
+          expect.fail('Expected error is not an instance of Error');
+        }
       }
     }
 

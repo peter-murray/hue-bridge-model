@@ -144,7 +144,11 @@ describe('BaseType', () => {
           type.getValue(null);
           expect.fail('Should not get here');
         } catch (err) {
-          expect(err.message).to.contain('is not optional');
+          if (err instanceof Error) {
+            expect(err.message).to.contain('is not optional');
+          } else {
+            expect.fail('err should be of type Error');
+          }
         }
       });
 
@@ -153,7 +157,11 @@ describe('BaseType', () => {
           type.getValue(undefined);
           expect.fail('Should not get here');
         } catch (err) {
-          expect(err.message).to.contain('is not optional');
+          if (err instanceof Error) {
+            expect(err.message).to.contain('is not optional');
+          } else {
+            expect.fail('err should be of type Error');
+          }
         }
       });
 

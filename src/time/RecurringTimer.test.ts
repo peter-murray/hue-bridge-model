@@ -30,7 +30,9 @@ describe('#RecurringTimer', () => {
       expect.fail('should have errored');
     } catch (err) {
       expect(err).to.be.instanceOf(TypeError);
-      expect(err.message).to.include('not within allowed limits');
+      if (err instanceof Error) {
+        expect(err.message).to.include('not within allowed limits');
+      }
     }
   });
 
@@ -42,7 +44,9 @@ describe('#RecurringTimer', () => {
       expect.fail('should have errored');
     } catch (err) {
       expect(err).to.be.instanceOf(TypeError);
-      expect(err.message).to.include('not within allowed limit');
+      if (err instanceof Error) {
+        expect(err.message).to.include('not within allowed limit');
+      }
     }
   });
 
@@ -54,7 +58,9 @@ describe('#RecurringTimer', () => {
       expect.fail('should have errored');
     } catch (err) {
       expect(err).to.be.instanceOf(TypeError);
-      expect(err.message).to.include('not within allowed limits');
+      if (err instanceof Error) {
+        expect(err.message).to.include('not within allowed limits');
+      }
     }
   });
 
