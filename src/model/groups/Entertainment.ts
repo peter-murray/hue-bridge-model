@@ -4,7 +4,7 @@ import { BooleanType, ChoiceType, ListType, ObjectType, StringType } from '../..
 const ATTRIBUTES = [
   new StringType({name: 'type', defaultValue: 'Entertainment'}),
   // iOS Hue application is defaulting the types to TV currently, also only TV and Other seem to work out of all the classes
-  new ChoiceType({name: 'class', defaultValue: 'TV', validValues: ['TV', 'Other']}),
+  new ChoiceType({name: 'class', defaultValue: 'TV', validValues: ['TV', 'Free', 'Other']}),
   new ObjectType({
     name: 'stream',
     types: [
@@ -53,7 +53,7 @@ export class Entertainment extends Group {
     return this.getAttributeValue('class');
   }
 
-  get stream(): Stream  {
+  get stream(): Stream {
     return this.getAttributeValue('stream');
   }
 

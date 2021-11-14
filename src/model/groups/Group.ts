@@ -44,6 +44,7 @@ const ROOM_CLASSES = [
   'Porch',
   'Barbecue',
   'Pool',
+  'Free',
 ];
 
 
