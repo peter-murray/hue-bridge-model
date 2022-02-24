@@ -4,7 +4,8 @@ import { BooleanType, ChoiceType, ListType, ObjectType, StringType } from '../..
 const ATTRIBUTES = [
   new StringType({name: 'type', defaultValue: 'Entertainment'}),
   // iOS Hue application is defaulting the types to TV currently, also only TV and Other seem to work out of all the classes
-  new ChoiceType({name: 'class', defaultValue: 'TV', validValues: ['TV', 'Free', 'Other']}),
+  // Free is a new class from the iOS application that appeared using v2 API, cannot find any definitive reference on these classes so far in official docs
+  new ChoiceType({name: 'class', defaultValue: 'TV', validValues: ['TV', 'Other', 'Free']}),
   new ObjectType({
     name: 'stream',
     types: [
