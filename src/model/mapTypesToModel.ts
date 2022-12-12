@@ -25,6 +25,7 @@ import { ZGPSwitch } from './sensors/ZGPSwitch';
 import { ZLLLightlevel } from './sensors/ZLLLightlevel';
 import { ZLLPresence } from './sensors/ZLLPresence';
 import { ZLLSwitch } from './sensors/ZLLSwitch';
+import { ZLLRelativeRotary } from './sensors/ZLLRelativeRotary';
 import { ZLLTemperature } from './sensors/ZLLTemperature';
 import { GeoFence } from './sensors/GeoFence';
 
@@ -68,6 +69,7 @@ export const TYPES_TO_MODEL: NameToModelMap<any> = {
   zlllightlevel: ZLLLightlevel,
   zllpresence: ZLLPresence,
   zllswitch: ZLLSwitch,
+  zllrelativerotary: ZLLRelativeRotary,
   zlltemperature: ZLLTemperature,
   geofence: GeoFence,
 };
